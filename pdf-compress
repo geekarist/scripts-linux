@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -eu
+
+convert -compress jpeg -quality 75 -density 200x200 $1 $2

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -eu
+
+LEVEL=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | tr -d '%')
+
+function critical() {
+	echo "$@"
+	notify-send -u critical "$@"
+}
+
+if test $LEVEL -lt 5; then
+	critical 'Battery level is low! Hibernating in 1 minute.'
+	sleep 60
+	sudo pm-hibernate
+fi

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -eux
+
+minutes=$2
+goal=$1
+
+hours=$(echo "scale=2; $minutes / 60" | bc)
+
+result=$(bmndr $goal $hours)
+
+notify-send "Beeminder datapoint sent successfully: $hours hours to $goal"
+
+sleepin $minutes
