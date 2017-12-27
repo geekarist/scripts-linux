@@ -1,0 +1,6 @@
+#!/bin/bash
+set -eux
+current_ws=$(wmctrl -d | grep '*' | awk '{print $1}')
+wmctrl -r "$@" -t $current_ws
+sleep 1
+wmctrl -a "$@"
