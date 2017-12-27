@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eux
+
+time_min=$1
+
+webbrowser-app http://e.ggtimer.com/$time_min%20min

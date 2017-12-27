@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo synaptics-setup: Starting
+
+synclient \
+	MinSpeed=1 \
+	MaxSpeed=1 \
+	HorizHysteresis=100 \
+	VertHysteresis=100 \
+	SingleTapTimeout=50 \
+	RightButtonAreaLeft=0 \
+	RightButtonAreaTop=0 \
+	ClickFinger3=2 \
+
+echo synaptics-setup: Done

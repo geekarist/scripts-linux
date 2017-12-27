@@ -9,6 +9,6 @@ hours=$(echo "scale=2; $minutes / 60" | bc)
 
 result=$(bmndr $goal $hours)
 
-notify-send "Beeminder datapoint sent successfully: $hours hours to $goal"
+zenity --info --text="Beeminder datapoint sent successfully: $hours hours to $goal" &
 
 sleepin $minutes

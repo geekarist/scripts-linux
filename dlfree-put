@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -eux
+
+ncftpput -u christophe.pele@gmail.com -p bourrin -C dl.free.fr $1 $1
