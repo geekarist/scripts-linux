@@ -33,5 +33,6 @@ done
 
 #/etc/pm/sleep.d/20_force-quit
 
-sudo pm-suspend
+#sudo pm-suspend
 #sudo acpitool -S
+gnome-screensaver-command -l
