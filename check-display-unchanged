@@ -8,6 +8,8 @@ current=$(xrandr -q | md5sum)
 test "$previous" = "$current"
 result=$?
 
+export DISPLAY=:0
+
 xrandr -q | md5sum > ~/.watch-disp-conf.txt
 
 exit $result
