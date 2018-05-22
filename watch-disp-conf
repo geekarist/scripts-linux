@@ -2,6 +2,10 @@
 
 previous=$(cat ~/.watch-disp-conf.txt)
 current=$(xrandr -q | md5sum)
-test $previous = $current || result=0
+
+test $previous = $current
+result=$?
 
 xrandr -q | md5sum > ~/.watch-disp-conf.txt
+
+exit $result
