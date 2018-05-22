@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 previous=$(cat ~/.watch-disp-conf.txt)
 current=$(xrandr -q | md5sum)
 
