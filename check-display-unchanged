@@ -2,13 +2,13 @@
 
 set -x
 
+export DISPLAY=:0
+
 previous=$(cat ~/.watch-disp-conf.txt)
 current=$(xrandr -q | md5sum)
 
 test "$previous" = "$current"
 result=$?
-
-export DISPLAY=:0
 
 xrandr -q | md5sum > ~/.watch-disp-conf.txt
 
