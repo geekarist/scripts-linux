@@ -1,5 +1,12 @@
-adb shell dumpsys deviceidle disable
-adb shell dumpsys deviceidle enable
-adb shell input keyevent 26
-adb shell dumpsys deviceidle force-idle
-adb shell dumpsys deviceidle get deep
+#!/bin/bash
+
+if test $(adb shell dumpsys deviceidle get deep) eq "IDLE"; then
+	adb shell input keyevent 26
+	adb shell dumpsys deviceidle get deep
+else
+	adb shell dumpsys deviceidle disable
+	adb shell dumpsys deviceidle enable
+	adb shell input keyevent 26
+	adb shell dumpsys deviceidle force-idle
+	adb shell dumpsys deviceidle get deep
+fi
