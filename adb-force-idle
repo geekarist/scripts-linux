@@ -1,6 +1,10 @@
 #!/bin/bash
 
-if test $(adb shell dumpsys deviceidle get deep) eq "IDLE"; then
+current=$(adb shell dumpsys deviceidle get deep)
+
+echo "current: $current"
+
+if test $current = "IDLE"; then
 	adb shell input keyevent 26
 	adb shell dumpsys deviceidle get deep
 else
