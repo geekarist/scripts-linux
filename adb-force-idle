@@ -1,0 +1,4 @@
+adb shell dumpsys deviceidle disable
+adb shell dumpsys deviceidle enable
+adb shell dumpsys deviceidle force-idle
+adb shell dumpsys deviceidle get deep
