@@ -2,7 +2,8 @@
 
 current=$(adb shell dumpsys deviceidle get deep)
 
-echo "current: $current"
+echo "Status is: $current"
+echo "Changing status..."
 
 if test $current = "IDLE"; then
 	adb shell dumpsys deviceidle unforce
