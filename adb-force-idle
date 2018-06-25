@@ -5,6 +5,7 @@ current=$(adb shell dumpsys deviceidle get deep)
 echo "current: $current"
 
 if test $current = "IDLE"; then
+	adb shell dumpsys deviceidle unforce
 	adb shell input keyevent 26
 	adb shell dumpsys deviceidle get deep
 else
