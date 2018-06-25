@@ -1,4 +1,5 @@
 adb shell dumpsys deviceidle disable
 adb shell dumpsys deviceidle enable
+adb shell input keyevent 26
 adb shell dumpsys deviceidle force-idle
 adb shell dumpsys deviceidle get deep
