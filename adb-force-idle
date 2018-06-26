@@ -1,11 +1,11 @@
 #!/bin/bash
 
-current=$(adb shell dumpsys deviceidle get deep)
+current=$(adb shell dumpsys power | grep mHoldingDisplaySuspendBlocker | cut -d'=' -f2)
 
-echo "Status is: $current"
+echo "mHoldingDisplaySuspendBlocker is: $current"
 echo "Changing status..."
 
-if test $current = "IDLE"; then
+if test $current = "false"; then
 	adb shell dumpsys battery plug
 	adb shell dumpsys deviceidle unforce
 	adb shell input keyevent 26
