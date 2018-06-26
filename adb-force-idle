@@ -6,12 +6,14 @@ echo "Status is: $current"
 echo "Changing status..."
 
 if test $current = "IDLE"; then
+	adb shell dumpsys battery plug
 	adb shell dumpsys deviceidle unforce
 	adb shell input keyevent 26
 	adb shell dumpsys deviceidle get deep
 else
 	adb shell dumpsys deviceidle disable
 	adb shell dumpsys deviceidle enable
+	adb shell dumpsys battery unplug
 	adb shell input keyevent 26
 	adb shell dumpsys deviceidle force-idle
 	adb shell dumpsys deviceidle get deep
